@@ -25,4 +25,16 @@ service apache2 start 				# starts HTTP service
 wget https://www.cisco.com			# downloads web page
 ls -l index -html					# more details than ls
 
-grep "href=" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | sort -u
+grep "href=" index.html | 			# take strings containing web urls
+	cut -d "/" -f 3 | 				# delimiters = "/" then take the third field after delimiter
+	grep "\." | 					# take strings containing "\."
+	cut -d '"' -f 1 | 				# delimiters = " " then take first field after delimiter
+	sort -u > list.txt				# sort results whithout repetitions, then write result in list.txt
+	
+	
+for url in $(list.txt); do host $url; done			# for every url saved in list.txt, calculate IP
+	grep "has address "	|							# interested only in "has address " lines to extract IP
+	cut -d " " -f 4 | sort -u						# delimiters = " " then take fourth field, and sort. Here we have IPs!
+
+
+
