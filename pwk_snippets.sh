@@ -37,4 +37,11 @@ for url in $(list.txt); do host $url; done			# for every url saved in list.txt, 
 	cut -d " " -f 4 | sort -u						# delimiters = " " then take fourth field, and sort. Here we have IPs!
 
 
+head access.log						# prints first 10 lines of access.log
+wc access.log						# returns line count
+
+cat access.log | cut -d " " -f 1 |			# delimiters = " " then take first field
+	sort | uniq -c |						# sort and count the occurencies of every IP request
+  	sort -urn								# sort in unique (-u), reverse-order (-r), numeric-sort(-n)
+
 
