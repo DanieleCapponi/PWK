@@ -26,18 +26,14 @@ class myThread (threading.Thread):
 		timeout = 3
 		fName = "temp.ip."+str(self.counter)
 		
-		ports = {'tcpM':1, 'tcpCMU':2, 'tcpCCP':3, 'udp':7, 'BifUDP':8, 'dayTime':13, 'ftpD':20, 'ftpC':21, 'ssh':22, 'tlnt':23, 'smtp':25, 'dns':53,
-		'dhcpS':67, 'dhcpC':68, 'http':80, 'kerb':88, 'pop3':110, 'imap4':143, 'https':443, 'smtp':465, 'syslog':514, 'smtp':587, 'imap4S':993, 
-		'pop3S':995, 'socks':1080, 'openVPN':1194, 'msSQL':1433, 'msSQLm':1434, 'bigbrother':1984, 'networkFS':2049, 'mySQL':3306, 'rdp':3389,
-		'subversion':3690, 'sip':5060}
-		
 		file = open(fName, "w")
 		file.write("[*]"+ip+":")
 		
-		for el in ports :
+		p = 1
+		while p < 65536 :
 			try:
-				socket.create_connection((ip, el), timeout)
-				file.write("\n      CONNECTION port:\t" + str(ports[el]) + " (" + el + ")")
+				socket.create_connection((ip, p), timeout)
+				file.write("\n      CONNECTION port:\t" + str(p))
 				self.flag = 0
 			except Exception, arg:
 				if (str(arg).find("refused", 0) > -1) :
