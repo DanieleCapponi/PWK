@@ -11,9 +11,9 @@ from SweepTh import SweepTh
 
 
 def verifyIP(ip) :
-
-	if "/" not in ip or "." not in ip :
-		sys.exit(3)
+	
+	if "/" not in ip or "." not in ip  or ip == "" :
+		return False
 
 	i1 = int(ip[0 : ip.find(".")])
 	ip = ip[ip.find(".")+1 : len(ip)]
@@ -29,12 +29,17 @@ def verifyIP(ip) :
 
 
 try:
-	ip = sys.argv[1]			# take ip arg from user
+	try:
+		ip = sys.argv[1]			# take ip arg from user
+	except Exception:
+		print "*** You need to specify a network ip addres (x.x.x.x/cidr)"
+		sys.exit(1)
+		
 	if verifyIP(ip) is False :
 		raise Exception("*** Malfomed ip address (x.x.x.x/cidr) ")
 except Exception as e :
 	print e
-	sys.exit(1)
+	sys.exit(2)
 
 print ("\t -- Starting IP-Sweep over subnet " + ip + " --")
 
