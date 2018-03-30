@@ -1,0 +1,80 @@
+
+[*]192.168.254.5:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	443 (https)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.9:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	443 (https)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.10:
+      CONNECTION port:	3690 (subversion)
+
+[*]192.168.254.31:	Host is UP
+
+[*]192.168.254.50:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	587 (smtp)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.55:	Host is UP
+      CONNECTION port:	587 (smtp)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.60:	Host is UP
+
+[*]192.168.254.70:	Host is UP
+
+[*]192.168.254.71:	Host is UP
+
+[*]192.168.254.73:	Host is UP
+
+[*]192.168.254.90:
+      CONNECTION port:	80 (http)
+
+[*]192.168.254.101:
+      CONNECTION port:	80 (http)
+
+[*]192.168.254.103:
+      CONNECTION port:	5060 (sip)
+
+[*]192.168.254.106:
+      CONNECTION port:	443 (https)
+
+[*]192.168.254.110:	Host is UP
+
+[*]192.168.254.111:	Host is UP
+
+[*]192.168.254.118:	Host is UP
+
+[*]192.168.254.121:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.124:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.135:
+      CONNECTION port:	5060 (sip)
+
+[*]192.168.254.146:	Host is UP
+
+[*]192.168.254.169:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.182:	Host is UP
+
+[*]192.168.254.220:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	443 (https)
+      CONNECTION port:	22 (ssh)
+
+[*]192.168.254.251:	Host is UP
+
+[*]192.168.254.254:
+      CONNECTION port:	80 (http)
+      CONNECTION port:	22 (ssh)

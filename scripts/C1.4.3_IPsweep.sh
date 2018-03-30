@@ -19,7 +19,7 @@ echo
 # save hosts up in IPs_up.txt
 grep "from " temp | cut -d " " -f 4 | cut -d ":" -f 1 | sort -u > IPs_up
 
-echo "***************" $(wc IPs_up | cut -d " " -f 3) HOSTS ARE RESPONSIVE "***************"
+echo "***************" $(wc IPs_up | cut -d " " -f 2) HOSTS ARE RESPONSIVE "***************"
 
 cat IPs_up
 echo
